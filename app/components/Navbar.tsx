@@ -7,6 +7,7 @@ import {
   LogoutLink,
 } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { UserNav } from "./UserNav";
 
 export const Navbar = async () => {
   const { isAuthenticated } = getKindeServerSession();
@@ -22,9 +23,7 @@ export const Navbar = async () => {
           <ThemeToggle />
 
           {(await isAuthenticated()) ? (
-            <LogoutLink>
-              <Button>Log Out</Button>
-            </LogoutLink>
+            <UserNav />
           ) : (
             <div className="flex items-center gap-x-5">
               <LoginLink>
